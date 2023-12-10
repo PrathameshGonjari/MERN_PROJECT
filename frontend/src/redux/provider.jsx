@@ -1,13 +1,8 @@
-"use client";
 import React from "react";
 import { Provider } from "react-redux";
 import { store } from "./store";
 
-const ReduxProvider = ({
-  children,
-}: {
-  children: React.ReactNode;
-}): React.JSX.Element => {
+const ReduxProvider = ({ children }) => {
   return <Provider store={store}>{children}</Provider>;
 };
 

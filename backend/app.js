@@ -1,10 +1,19 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const errorMiddleware = require("./middleware/error");
 const cookieParser = require("cookie-parser");
 
 app.use(express.json());
 app.use(cookieParser());
+
+const allowedOrigins = ["http://localhost:4000", "http://localhost:8080", "http://192.168.29.21:4000"];
+
+const options = {
+    origin: allowedOrigins,
+};
+
+app.use(cors(options));
 
 //Route Imports
 const product = require("./routes/productRoutes");
